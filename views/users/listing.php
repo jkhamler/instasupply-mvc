@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User Registration</title>
+    <title>User Listing</title>
     <link rel="stylesheet" type="text/css" href="./Assets/bootstrap.css">
 </head>
 <body>
