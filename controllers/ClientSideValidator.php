@@ -1,6 +1,8 @@
 <?php
 
 /**
+ * This class is responsible for conducting client side validation when submitting POST data via a form.
+ *
  * Created by PhpStorm.
  * User: jonathanhamler
  * Date: 25/01/2017
@@ -62,17 +64,5 @@ class ClientSideValidator
     {
         return (filter_var($email, FILTER_VALIDATE_EMAIL));
     }
-
-    /**
-     * Tests if the date of birth provided is in the past
-     *
-     * @param DateTime $dateOfBirth
-     * @return bool
-     */
-    private function isValidDateOfBirth(DateTime $dateOfBirth)
-    {
-        return strtotime($dateOfBirth) > time() ? false : true;
-    }
-
 
 }

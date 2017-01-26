@@ -1,6 +1,9 @@
 <?php
 
 /**
+ * This class is responsible for conducting further validation checks on the server side
+ * after client-side validation has passed
+ *
  * Created by PhpStorm.
  * User: jonathanhamler
  * Date: 25/01/2017

@@ -1,17 +1,20 @@
 <?php
 
+
+/**
+ * This class is responsible for setting up the PDO database connection.
+ *
+ * Class Db
+ */
 class Db
 {
     private static $instance = NULL;
 
-    private function __construct()
-    {
-    }
-
-    private function __clone()
-    {
-    }
-
+    /**
+     * We require one instance of the PDO class to available globally in the project
+     *
+     * @return null|PDO
+     */
     public static function getInstance()
     {
         if (!isset(self::$instance)) {
