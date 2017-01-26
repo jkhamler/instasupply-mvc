@@ -60,32 +60,28 @@ class User
     }
 
     /**
+     * A method to check the existence of a user with a given email address
+     *
      * @param $email
-     * @return User
+     * @return bool
      */
-    public static function findByEmail($email)
+    public static function userExistsWithEmail($email)
     {
         $db = Db::getInstance();
         // we make sure $email is a string
         $email = strval($email);
-        $req = $db->prepare('SELECT * FROM users WHERE email = :email');
+        $req = $db->prepare('SELECT id FROM users WHERE email = :email');
         // the query was prepared, now we replace :email with our actual $email value
         $req->execute(array('email' => $email));
 
         $userData = $req->fetch();
 
-        $dateOfBirth = new DateTime($userData['date_of_birth']);
-
-        return new User(
-            $userData['id'],
-            $userData['name'],
-            $userData['email'],
-            $userData['password'],
-            $dateOfBirth
-        );
+        return is_array($userData);
     }
 
     /**
+     * We save the data to the DB
+     *
      * @return bool
      */
     public function persist()

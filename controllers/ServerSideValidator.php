@@ -47,6 +47,8 @@ class ServerSideValidator
     private function isPasswordBlacklisted($password)
     {
 
+        echo 'BLACKLIST PASSWORD';
+
         $handle = fopen("./Resources/password-blacklist.txt", "r");
 
         if ($handle) {
@@ -72,7 +74,7 @@ class ServerSideValidator
      */
     private function isEmailAddressAlreadyTaken($emailAddress)
     {
-        $existingUser = User::findByEmail($emailAddress);
+        $existingUser = User::userExistsWithEmail($emailAddress);
 
         if ($existingUser instanceof User) {
 
