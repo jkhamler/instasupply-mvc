@@ -72,9 +72,7 @@ class ServerSideValidator
      */
     private function isEmailAddressAlreadyTaken($emailAddress)
     {
-        $dbController = new DBController();
-
-        $existingUser = $dbController->getUserByEmailAddress($emailAddress);
+        $existingUser = User::findByEmail($emailAddress);
 
         if ($existingUser instanceof User) {
 

@@ -92,7 +92,17 @@ class User
     {
         $saveSuccess = false;
 
+        $pdoConnection = Db::getInstance();
+        $dateOfBirth = $this->dateOfBirth;
+
+        $sql = "INSERT INTO users (email, password, name, date_of_birth)
+        VALUES ('" . $this->email . "','" . $this->password . "','" . $this->name . "','" . $dateOfBirth->format('Y-m-d') . "')";
+        if ($pdoConnection->query($sql)) {
+            $saveSuccess = true;
+        }
+
         return $saveSuccess;
+
     }
 }
 

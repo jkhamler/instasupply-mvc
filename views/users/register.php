@@ -16,7 +16,7 @@ require './controllers/ServerSideValidator.php';
 
 $clientSideValidator = new ClientSideValidator();
 
-if ($_POST['submit_button']) { // has the submit button been clicked?
+if ($_POST['submit_button']) { // has the submit button been clicked?F
 
     $validationErrors = false; // we assume the post is valid until proven otherwise
     $clientSideValidationErrors = $clientSideValidator->getValidationErrors($_POST);
