@@ -1,4 +1,11 @@
 <?php
+
+/**
+ * This method is responsible for calling the correct controller actions based on the URL request
+ *
+ * @param $controller
+ * @param $action
+ */
 function call($controller, $action)
 {
     require_once('controllers/' . ucfirst($controller) . 'Controller.php');
@@ -14,7 +21,7 @@ function call($controller, $action)
     $controller->{$action}();
 }
 
-// we're adding an entry for the new controller and its actions
+// This is where we register the controllers and controller actions
 $controllers = array(
     'users' => ['register', 'listing']
 );
