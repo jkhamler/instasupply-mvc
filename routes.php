@@ -1,7 +1,7 @@
 <?php
 
 /**
- * This method is responsible for calling the correct controller actions based on the URL request
+ * This method is responsible for calling the correct controller actions.
  *
  * @param $controller
  * @param $action

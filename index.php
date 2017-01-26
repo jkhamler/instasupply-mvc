@@ -1,7 +1,7 @@
 <?php
 require_once('connection.php');
 
-// This is the home page that serves all requests and redirects to the correct controller actions
+// This is the main PHP file that serves all requests
 
 if (isset($_GET['controller']) && isset($_GET['action'])) {
     $controller = $_GET['controller'];
