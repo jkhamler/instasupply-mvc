@@ -41,14 +41,13 @@ class ServerSideValidator
     }
 
     /**
+     * Checks a given password against contents of the included text file 'password-blacklist.txt'
+     *
      * @param $password
      * @return bool
      */
     private function isPasswordBlacklisted($password)
     {
-
-        echo 'BLACKLIST PASSWORD';
-
         $handle = fopen("./Resources/password-blacklist.txt", "r");
 
         if ($handle) {

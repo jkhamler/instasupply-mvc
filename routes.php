@@ -1,7 +1,7 @@
 <?php
 function call($controller, $action)
 {
-    require_once('controllers/' . $controller . '_controller.php');
+    require_once('controllers/' . ucfirst($controller) . 'Controller.php');
 
     switch ($controller) {
         case 'users':
