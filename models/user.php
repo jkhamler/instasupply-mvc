@@ -24,7 +24,7 @@ class User
      * @param string $password
      * @param DateTime $dateOfBirth
      */
-    public function __construct($id, $name, $email, $password, DateTime $dateOfBirth)
+    public function __construct($id = null, $name, $email, $password, DateTime $dateOfBirth)
     {
         $this->id = $id;
         $this->name = $name;
@@ -33,6 +33,9 @@ class User
         $this->dateOfBirth = $dateOfBirth;
     }
 
+    /**
+     * @return User[]
+     */
     public static function all()
     {
         $userModels = [];
@@ -56,6 +59,10 @@ class User
         return $userModels;
     }
 
+    /**
+     * @param $email
+     * @return User
+     */
     public static function findByEmail($email)
     {
         $db = Db::getInstance();
@@ -76,6 +83,16 @@ class User
             $userData['password'],
             $dateOfBirth
         );
+    }
+
+    /**
+     * @return bool
+     */
+    public function persist()
+    {
+        $saveSuccess = false;
+
+        return $saveSuccess;
     }
 }
 

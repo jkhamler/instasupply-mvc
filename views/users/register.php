@@ -11,12 +11,10 @@
 
 <?
 
-require 'DBController.php';
-require 'ClientSideValidator.php';
-require 'ServerSideValidator.php';
+require './controllers/ClientSideValidator.php';
+require './controllers/ServerSideValidator.php';
 
 $clientSideValidator = new ClientSideValidator();
-$dbController = new DBController();
 
 if ($_POST['submit_button']) { // has the submit button been clicked?
 
@@ -42,13 +40,15 @@ if ($_POST['submit_button']) { // has the submit button been clicked?
 
     if ($validationErrors == false) { // if no validation errors, persist User model to the DB.
 
-        $user = new User();
-        $user->email = $_POST['email'];
-        $user->password = $_POST['password'];
-        $user->name = $_POST['name'];
-        $user->dateOfBirth = new DateTime($_POST['date_of_birth']);
+        $user = new User(
+            null,
+            $_POST['name'],
+            $_POST['email'],
+            $_POST['password'],
+            new DateTime($_POST['date_of_birth'])
+        );
 
-        if ($dbController->persistUser($user)) {
+        if ($user->persist()) {
             echo "<script type= 'text/javascript'>alert('New Record Inserted Successfully');</script>";
         } else {
             echo "<script type= 'text/javascript'>alert('Data not successfully Inserted.');</script>";
