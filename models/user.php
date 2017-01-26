@@ -1,5 +1,10 @@
 <?php
 
+/**
+ * User Data Model
+ *
+ * Class User
+ */
 class User
 {
     // We define our model properties
