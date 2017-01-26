@@ -4,10 +4,10 @@ function call($controller, $action)
     require_once('controllers/' . $controller . '_controller.php');
 
     switch ($controller) {
-        case 'posts':
+        case 'users':
             // we need the model to query the database later in the controller
-            require_once('models/post.php');
-            $controller = new PostsController();
+            require_once('models/user.php');
+            $controller = new UsersController();
             break;
     }
 
@@ -16,16 +16,16 @@ function call($controller, $action)
 
 // we're adding an entry for the new controller and its actions
 $controllers = array(
-    'posts' => ['register', 'listing']
+    'users' => ['register', 'listing']
 );
 
 if (array_key_exists($controller, $controllers)) {
     if (in_array($action, $controllers[$controller])) {
         call($controller, $action);
     } else {
-        call('posts', 'error');
+        call('users', 'error');
     }
 } else {
-    call('posts', 'error');
+    call('users', 'error');
 }
 ?>
